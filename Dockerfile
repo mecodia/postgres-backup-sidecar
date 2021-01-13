@@ -9,7 +9,6 @@ WORKDIR /wheels
 RUN pip3 wheel borgmatic==${BORGMATIC_VERSION}
 
 FROM python:${PYTHON_VERSION}
-ARG BORGMATIC_VERSION=1.5.1
 
 COPY --from=builder /wheels /wheels
 COPY pg_backup.sh /etc/periodic/daily/pg_backup
